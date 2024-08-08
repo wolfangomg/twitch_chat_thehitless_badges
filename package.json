@@ -1,0 +1,21 @@
+{
+  "name": "chat_pronouns_browser_extension",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:wolfangomg/twitch_chat_thehitless_badges.git",
+  "author": "Wolfang <seyzer92@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "bestzip": "^2.1.7",
+    "esbuild": "^0.20.0",
+    "esbuild-plugin-copy": "^2.1.1",
+    "preact": "^10.17.0",
+    "preact-render-to-string": "^6.2.1",
+    "typescript": "^4.0.5",
+    "zod": "^3.22.2"
+  },
+  "scripts": {
+    "build": "node esbuild.mjs",
+    "zip": "cd dist && bestzip ../out.zip ./*"
+  }
+}

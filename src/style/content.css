@@ -1,0 +1,58 @@
+.user-thehitless {
+  padding: 2px;
+  font-weight: bold;
+  color: var(--color-text-base);
+}
+
+.th-badge-wrapper[data-a-target="th-badge-cnt"][data-provider="thehitless"] {
+  display: inline !important;
+  position: relative !important;
+}
+
+.th-badge-wrapper:hover > .th-tooltip {
+  display: block;
+}
+
+.th-tooltip {
+  padding: 3px 6px;
+  border-radius: var(--border-radius-medium); /* 0.4rem */
+  background-color: var(--color-background-tooltip); /* #fff */
+  color: var(--color-text-tooltip); /* #040109 */
+  display: none;
+  position: absolute;
+  font-size: var(--font-size-6); /* 1.2rem */
+  font-weight: var(--font-weight-semibold); /* 600 */
+  line-height: var(--line-height-heading); /* 1.2 */
+  text-align: left;
+  z-index: var(--z-index-balloon); /* 2000 */
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  top: auto;
+  bottom: 100%;
+  left: 0px;
+  margin-bottom: 0.9rem;
+}
+
+.th-tooltip::before {
+  top: -6px;
+  left: -6px;
+  width: calc(100% + 12px);
+  height: calc(100% + 12px);
+  z-index: var(--z-index-below); /* undefined? */
+}
+
+.th-tooltip::after {
+  background-color: var(--color-background-tooltip); /* undefined? */
+  width: 6px;
+  height: 6px;
+  transform: rotate(45deg);
+  z-index: var(--z-index-below); /* undefined? */
+  bottom: -3px;
+  left: 6px;
+}
+
+.th-tooltip::before, .th-tooltip::after {
+  position: absolute;
+  content: "";
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Twitch Chat TheHitless Badges",
+  "version": "0.2.3",
+  "description": "Add Badges to Twitch Chat from TheHitless community",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.twitch.tv/*",
+        "https://twitch.tv/*",
+        "https://dashboard.twitch.tv/u/*/stream-manager",
+        "https://dashboard.twitch.tv/popout/u/*/stream-manager/chat"
+      ],
+      "js": [
+        "./bundle.js"
+      ],
+      "css": [
+        "./bundle.css"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "host_permissions": [
+    "https://thehitless.com/api/*",
+    "https://twitch.tv/*",
+    "https://www.twitch.tv/*"
+  ],
+  "manifest_version": 3
+}

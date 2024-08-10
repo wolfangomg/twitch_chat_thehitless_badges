@@ -1,6 +1,6 @@
 {
   "name": "Twitch Chat TheHitless Badges",
-  "version": "0.2.3",
+  "version": "1",
   "description": "Add Badges to Twitch Chat from TheHitless community",
   "content_scripts": [
     {

@@ -53,7 +53,7 @@ export const getHealthcheck = async () => {
 
 export const getBadges = async () => {
   const res = await get<any[]>("/badges");
-  const obj = res ? res.reduce((acc, item) => {
+  const obj = res ? res.reduce((acc: any, item: any) => {
     acc[item._id] = item;
     return acc;
   }, {}) : {}

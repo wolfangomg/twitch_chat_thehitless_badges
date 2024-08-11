@@ -17,5 +17,8 @@
   "scripts": {
     "build": "node esbuild.mjs",
     "zip": "cd dist && bestzip ../dist.zip *"
+  },
+  "dependencies": {
+    "yarn": "^1.22.22"
   }
 }

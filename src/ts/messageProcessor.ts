@@ -53,7 +53,11 @@ export const processVoDMessage = async (
 
       badges.insertAdjacentHTML(
         "beforeend",
-        generateTHBadge(newTHBadges[user_ext.userId.badge].name, newTHBadges[user_ext.userId.badge].url)
+        generateTHBadge(
+          newTHBadges[user_ext.userId.badge].name,
+          newTHBadges[user_ext.userId.badge].url,
+          user_ext.userId.name
+        )
       );
     }
   }
@@ -91,8 +95,9 @@ export const processLiveMessage = async (
 
       const badgeHTML = generateTHBadge(
         newTHBadges[user_ext.userId.badge].name,
-        newTHBadges[user_ext.userId.badge].url
-      );
+        newTHBadges[user_ext.userId.badge].url,
+        user_ext.userId.name
+      )
 
       badges.insertAdjacentHTML("beforeend", badgeHTML);
     }

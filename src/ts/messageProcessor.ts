@@ -33,13 +33,6 @@ export const processVoDMessage = async (
     return target;
   }
 
-  // const userElm: HTMLElement | null = target.querySelector(
-  //   Selectors.VOD_CHAT_USERNAME
-  // );
-  // if (userElm === null) {
-  //   return target;
-  // }
-
   const token: string | null = target.getAttribute("data-user-id");
   if (token !== null) {
     const user_ext = await api.getUser(token.toLowerCase());
@@ -72,22 +65,13 @@ export const processLiveMessage = async (
     return target;
   }
 
-  // const userElm: HTMLElement | null =
-  //   target.querySelector(Selectors.LIVE_CHAT_DISPLAY_NAME) ||
-  //   target.querySelector(Selectors.FFZ.LIVE_CHAT_DISPLAY_NAME);
-  // if (userElm === null) {
-  //   return target;
-  // }
-  const token = target.getAttribute("data-user-id");
-  console.log("token", token);
+  const token = target.getAttribute("data-user-id") || target.getAttribute("data-a-user");
   if (token !== null) {
     const user_ext = await api.getUser(token.toLowerCase());
-    console.log("user_ext", user_ext);
     if (user_ext !== undefined) {
       const badges = target.querySelector(
         `${Selectors.LIVE_CHAT_BADGES},${Selectors.FFZ.LIVE_CHAT_BADGES}`
       );
-      console.log("lo tenemos", badges, newTHBadges, user_ext.userId.badge);
 
       if (badges === null) {
         return target;
@@ -102,6 +86,8 @@ export const processLiveMessage = async (
       badges.insertAdjacentHTML("beforeend", badgeHTML);
     }
   }
+  
+  
 
   return target;
 };

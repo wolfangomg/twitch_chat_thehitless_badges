@@ -30,13 +30,13 @@ const nodeParser = (node: Node) => {
     node.getAttribute("data-test-selector") === "chat-line-message" ||
     node.classList.contains("chat-line__message")
   ) {
-    // Logger.debug("LIVE MSG ", node);
+    Logger.debug("LIVE MSG ", node);
     processLiveMessage(node);
   } else if (
     node.classList.contains("chat-line__message--badges") &&
     node.parentElement
   ) {
-    // Logger.debug("LIVE MSG ", node)
+    Logger.debug("LIVE MSG ", node)
     processLiveMessage(node.parentNode as HTMLElement);
   } else if (isVoD() && node.nodeName.toUpperCase() === "LI") {
     // Logger.debug("VOD MSG ", node);

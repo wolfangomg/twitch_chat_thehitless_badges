@@ -60,15 +60,15 @@ export const getBadges = async () => {
   return obj;
 };
 
-export const getUser = async (username: string) => {
-  if (userFetchingCache[username] !== undefined) {
-    return await userFetchingCache[username];
+export const getUser = async (token: string) => {
+  if (userFetchingCache[token] !== undefined) {
+    return await userFetchingCache[token];
   }
 
   const promise = new Promise<User | undefined>(async (res, rej) => {
     try {
       const response = await get(
-        "/users/browser-ext/" + username,
+        "/users/browser-ext/" + token,
         UserValidator
       );
 
@@ -78,11 +78,38 @@ export const getUser = async (username: string) => {
     }
   });
 
-  userFetchingCache[username] = promise;
+  userFetchingCache[token] = promise;
 
   setTimeout(() => {
-    delete userFetchingCache[username];
+    delete userFetchingCache[token];
   }, 15 * 60 * 1000);
+
+  return await promise;
+};
+
+export const getUserName = async (username: string) => {
+  let token: string;
+  const promise = new Promise<User | undefined>(async (res, rej) => {
+    try {
+      const response = await get(
+        "/users/browser-ext/user/" + username,
+        UserValidator
+      );
+      
+      if(token){
+        userFetchingCache[token] = promise;
+
+        setTimeout(() => {
+          delete userFetchingCache[token];
+        }, 15 * 60 * 1000);
+      }
+      
+      res(response);
+    } catch (ex) {
+      rej(ex);
+    }
+  });
+
 
   return await promise;
 };

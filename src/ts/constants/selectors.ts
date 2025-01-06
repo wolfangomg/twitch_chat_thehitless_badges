@@ -1,14 +1,17 @@
-export const ROOT = `#root`;
+export const ROOT = `#root`
 
-export const LIVE_CHAT_DISPLAY_NAME = `span.chat-author__display-name`;
-export const LIVE_CHAT_BADGES =
-  `.chat-line__username-container > span:not(.chat-line__username)`;
+export const LIVE_CHAT_DISPLAY_NAME = `span.chat-author__display-name`
+export const LIVE_CHAT_BADGES = `.chat-line__username-container > span:not(.chat-line__username)`
 
-export const VOD_CHAT_USERNAME =
-  `[data-test-selector="comment-author-selector"]`;
-export const VOD_CHAT_BADGES = `[data-test-selector="message-layout"] span`;
+export const VOD_CHAT_USERNAME = `[data-test-selector="comment-author-selector"]`
+export const VOD_CHAT_BADGES = `[data-test-selector="message-layout"] span`
 
 export const FFZ = {
   LIVE_CHAT_DISPLAY_NAME: `span.chat-line__username`,
-  LIVE_CHAT_BADGES: `span.chat-line__message--badges`,
-};
+  LIVE_CHAT_BADGES: `span.chat-line__message--badges`
+}
+
+export const LIVE_CHAT_USER_ATTRIBUTE = 'data-user-id'
+export const LIVE_CHAT_USER_ATTRIBUTE2 = 'data-user'
+
+export const LIVE_CHAT_TAG_TH = 'thehitless'

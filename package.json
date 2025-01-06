@@ -16,7 +16,8 @@
   },
   "scripts": {
     "build": "node esbuild.mjs",
-    "zip": "cd dist && bestzip ../dist.zip *"
+    "zip": "cd dist && bestzip ./dist.zip *",
+    "zipProyect": "bestzip ./firefox_thbadges.zip *"
   },
   "dependencies": {
     "yarn": "^1.22.22"

@@ -29,7 +29,7 @@ export const tagAsProcessed = (target: HTMLElement): boolean => {
 
 export const processVoDMessage = async (target: HTMLElement) => {
   if (tagAsProcessed(target)) {
-    return
+    return target
   }
 
   const token: string | null =
@@ -41,7 +41,7 @@ export const processVoDMessage = async (target: HTMLElement) => {
       const badges = target.querySelector(Selectors.VOD_CHAT_BADGES)
 
       if (badges === null) {
-        return
+        return target
       }
 
       badges.insertAdjacentHTML(
@@ -60,7 +60,7 @@ export const processVoDMessage = async (target: HTMLElement) => {
 
 export const processLiveMessage = async (target: HTMLElement) => {
   if (tagAsProcessed(target)) {
-    return
+    return target
   }
 
   const token: string | null =

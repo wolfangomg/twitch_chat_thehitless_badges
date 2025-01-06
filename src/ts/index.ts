@@ -14,7 +14,6 @@ import 'src/style/content.css'
 const isVoD = () => /^\/videos\/\d+/.test(window.location.pathname)
 
 const nodeParser = (node: Node) => {
-  console.log('Procesando este nodo ', node)
   if (!(node instanceof HTMLElement)) {
     return
   }
@@ -25,14 +24,17 @@ const nodeParser = (node: Node) => {
   ) {
     return
   }
-  const element = node.childNodes[0]
 
   if (node.classList.contains('chat-line__message')) {
     //Logger.debug("LIVE MSG 1 ", node);
     processLiveMessage(node)
-  } else if (element && node.parentElement) {
+  } else if (
+    node.children[0] &&
+    node.parentElement &&
+    node.children[0] instanceof HTMLElement
+  ) {
     // Logger.debug('LIVE MSG 2 ', element)
-    processLiveMessage(element as HTMLElement)
+    processLiveMessage(node.children[0])
   } else if (isVoD() && node.nodeName.toUpperCase() === 'LI') {
     // Logger.debug("VOD MSG ", node);
     processVoDMessage(node)

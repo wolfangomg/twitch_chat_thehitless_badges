@@ -30,14 +30,14 @@ const nodeParser = (node: Node) => {
     node.getAttribute("data-test-selector") === "chat-line-message" ||
     node.classList.contains("chat-line__message")
   ) {
-    Logger.debug("LIVE MSG ", node);
+    //Logger.debug("LIVE MSG 1 ", node);
     processLiveMessage(node);
   } else if (
-    node.classList.contains("chat-line__message--badges") &&
+    node.closest(".chat-line__message") &&
     node.parentElement
   ) {
-    Logger.debug("LIVE MSG ", node)
-    processLiveMessage(node.parentNode as HTMLElement);
+    //Logger.debug("LIVE MSG 2 ", node.closest(".chat-line__message"))
+    processLiveMessage(node.closest(".chat-line__message"));
   } else if (isVoD() && node.nodeName.toUpperCase() === "LI") {
     // Logger.debug("VOD MSG ", node);
     processVoDMessage(node);

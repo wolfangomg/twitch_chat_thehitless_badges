@@ -15,7 +15,8 @@ export function generateTHBadge(text: string, url: string, user: string) {
       <div className="th-tooltip" role="tooltip"> 
         <div className="th-tooltip-data">
           <img src={url} width={64} height={64} alt={text} />
-          <span>TheHitless - {text}</span>
+          <p>TheHitless</p>
+          <p>{text}</p>
         </div>
       </div>
     </div>

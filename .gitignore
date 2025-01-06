@@ -3,3 +3,5 @@ dist/
 .zip
 *.swp
 *.swo
+yarn.lock
+yarn-error.log
